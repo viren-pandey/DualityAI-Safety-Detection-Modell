@@ -1,0 +1,8 @@
+ultralytics==8.0.196
+opencv-python
+numpy
+pyyaml
+streamlit
+torch
+torchvision
+torchaudio

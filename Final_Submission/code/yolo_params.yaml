@@ -1,0 +1,15 @@
+path: C:\Users\VIREN PANDEY\Desktop\hathon\hackathon2_train_2\train_2
+
+train: C:\Users\VIREN PANDEY\Desktop\hathon\hackathon2_train_2\train_2\train2\images
+val:   C:\Users\VIREN PANDEY\Desktop\hathon\hackathon2_train_2\train_2\val2\images
+test:  C:\Users\VIREN PANDEY\Desktop\hathon\hackathon2_train_2\train_2\val2\images
+
+nc: 7
+names:
+  0: OxygenTank
+  1: NitrogenTank
+  2: FirstAidBox
+  3: FireAlarm
+  4: SafetySwitchPanel
+  5: EmergencyPhone
+  6: FireExtinguisher
