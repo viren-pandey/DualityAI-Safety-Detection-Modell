@@ -1,80 +1,71 @@
 
 
-# **Space Station Safety Object Detector – DualityAI Hackathon Project**
+# **DualityAI Space Station Safety Object Detection – Hackathon Submission**
 
-**Team Members:**
+This repository contains my official submission for the
+**DualityAI Space Station Safety Challenge** (BuildWithIndia 2.0).
 
-* **Viren Pandey** (Team Lead)
-* **Priyanshu Aryan**
-* **Pratyush Ghosh**
+The full submission (model, code, logs, report, app, predictions) is inside:
 
----
-
-## **📌 Overview**
-
-This project was developed for the **DualityAI Space Station Safety Challenge** under the **BuildWithIndia 2.0 Hackathon**.
-The goal is to detect **7 critical space-station safety objects** using a **custom-trained YOLOv8 model** powered by **Falcon’s synthetic dataset**.
-
-### **Detected Classes**
-
-1. OxygenTank
-2. NitrogenTank
-3. FirstAidBox
-4. FireAlarm
-5. SafetySwitchPanel
-6. EmergencyPhone
-7. FireExtinguisher
-
-The project includes:
-
-* A custom-trained YOLO model (`best.pt`)
-* Full training and validation logs
-* A working **Streamlit App** for real-time object detection
-* Falcon-based model updating plan
-* Complete report and documentation
-* Prediction samples
+👉 **`Final_Submission/` folder**
 
 ---
 
-## **📁 Project Structure**
+# ## 📁 Folder Structure
 
 ```
 Final_Submission/
 │
-├── models/
-│   └── best.pt
-│
-├── runs/
-│   └── train5/                # Complete YOLO training logs
-│
-├── predictions/
-│   ├── images/                # Output images with bounding boxes
-│   └── labels/                # YOLO-format prediction labels
-│
-├── code/
-│   ├── train.py               # Training script
-│   ├── predict.py             # Batch prediction script
-│   ├── app.py                 # Streamlit App (bonus)
-│   ├── yolo_params.yaml       # Dataset configuration
-│   └── ENV_SETUP/             # Conda environment setup tools
-│
-├── docs/
-│   ├── Report.pdf             # Final hackathon report
-│   └── README.md              # This file
-│
+├── models/                 → best.pt (trained YOLO model)
+├── runs/                   → training logs & graphs
+├── predictions/            → output images + YOLO labels
+├── code/                   → train.py, predict.py, app.py
+├── docs/                   → Report.pdf + detailed README
 └── requirements.txt
 ```
 
 ---
 
-## **⚙️ Installation & Setup**
+# ## 🚀 Installation & Running Instructions
 
-### **1. Create the Conda Environment**
+You can run the project using **pip** or the included **Conda environment**.
+
+---
+
+# ### **1. Clone the Repository**
+
+```
+git clone https://github.com/viren-pandey/DualityAI-Safety-Detection-Model.git
+cd DualityAI-Safety-Detection-Model/Final_Submission
+```
+
+---
+
+# ### **2. Install Dependencies (pip)**
+
+Run:
+
+```
+pip install -r requirements.txt
+```
+
+This installs:
+
+* YOLO (Ultralytics)
+* PyTorch
+* OpenCV
+* Streamlit
+* NumPy
+* PyYAML
+
+---
+
+# ### **3. Optional: Create Conda Environment**
 
 Navigate to:
 
 ```
-code/ENV_SETUP/
+Final_Submission/code/ENV_SETUP
 ```
 
 Run:
@@ -84,51 +75,30 @@ setup_env.bat
 conda activate EDU
 ```
 
-This installs:
-
-* PyTorch (GPU-enabled)
-* Ultralytics YOLO
-* OpenCV
-* Streamlit
-* PyYAML
-* NumPy
+This reproduces the exact environment used for training and testing.
 
 ---
 
-## **🚀 Training the Model**
+# ### **4. Train the Model (Optional)**
 
-To retrain the YOLO model:
+If you want to retrain YOLO:
 
 ```
 cd code
 python train.py
 ```
 
-Training parameters inside `train.py`:
-
-* Epochs: 10
-* Batch Size: 16
-* Image Size: 640
-* Optimizer: AdamW
-* Pretrained Weights: yolov8s.pt
-
-Training logs are saved automatically in:
-
-```
-runs/detect/trainX/
-```
+This will create a new `runs/detect/trainX` folder with updated logs.
 
 ---
 
-## **🧪 Running Predictions**
-
-### **Batch Prediction**
+# ### **5. Run Batch Predictions**
 
 ```
 python predict.py
 ```
 
-Results will be saved to:
+The results will be saved to:
 
 ```
 predictions/images/
@@ -137,83 +107,55 @@ predictions/labels/
 
 ---
 
-## **🌐 Streamlit App (Bonus Component)**
+# ### **6. Launch the Streamlit App (Bonus Component)**
 
-To launch the app:
+The web app allows uploading images and seeing detection results instantly.
 
 ```
 streamlit run app.py
 ```
 
-### App Features:
+This opens a browser window at:
 
-* Upload an image
-* Run YOLO inference (real-time)
-* Download annotated output
+```
+http://localhost:8501
+```
+
+Features:
+
+* Upload any image
+* YOLO runs inference in real-time
+* Download processed images
 * Clear UI for judges
-* Included Falcon updating explanation
+* Falcon model updating explanation included
 
 ---
 
-## **📊 Model Performance**
+# ## 🎯 Features
 
-### **Final Validation Metrics:**
-
-| Metric    | Score     |
-| --------- | --------- |
-| Precision | **0.866** |
-| Recall    | **0.684** |
-| mAP@50    | **0.773** |
-| mAP@50–95 | **0.645** |
-
-### **Class-wise mAP@50**
-
-* OxygenTank — 0.871
-* NitrogenTank — 0.815
-* FirstAidBox — 0.832
-* FireAlarm — 0.839
-* SafetySwitchPanel — 0.685
-* EmergencyPhone — 0.653
-* FireExtinguisher — 0.718
+* Custom-trained YOLOv8 model on Falcon synthetic dataset
+* High accuracy across 7 safety-critical classes
+* Real-time detection via Streamlit
+* Falcon-based model updating pipeline
+* Complete documentation + predictions + logs
 
 ---
 
-## **🔄 Falcon Model Updating Plan**
+# ## 👨‍🚀 Classes Detected
 
-Falcon can generate updated synthetic datasets when:
-
-* New objects are added
-* Lighting conditions change
-* Camera angles vary
-* Equipment models are modified
-
-**Updating Workflow:**
-
-1. Generate new synthetic dataset from Falcon
-2. Update paths in `yolo_params.yaml`
-3. Retrain using `python train.py`
-4. Replace `best.pt` in `app.py` directory
-5. The Streamlit app instantly uses the updated model
-
-This ensures **continuous improvement** without needing real ISS imagery.
+* OxygenTank
+* NitrogenTank
+* FirstAidBox
+* FireAlarm
+* SafetySwitchPanel
+* EmergencyPhone
+* FireExtinguisher
 
 ---
 
-## **📦 Submission Includes**
+# ## 🏁 Final Note
 
-* Trained YOLOv8 model
-* All scripts (train, predict, app)
-* Dataset configuration
-* Full training logs
-* Streamlit interface
-* Prediction results
-* Final report
-* README
-* Falcon updating plan
+A complete detailed report is inside:
+👉 **`Final_Submission/docs/Report.pdf`**
 
----
-
-## **🏁 Conclusion**
-
-The project demonstrates how **synthetic digital-twin data** from Falcon can be combined with **YOLOv8** to build a reliable, scalable safety-monitoring system for space-station environments. The integration of a real-time detection app further highlights the practical value of the solution.
 
