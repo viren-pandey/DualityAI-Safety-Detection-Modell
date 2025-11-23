@@ -35,7 +35,7 @@ You can run the project using **pip** or the included **Conda environment**.
 # ### **1. Clone the Repository**
 
 ```
-git clone https://github.com/viren-pandey/DualityAI-Safety-Detection-Model.git
+git clone https://github.com/viren-pandey/DualityAI-Safety-Detection-Modell.git
 cd DualityAI-Safety-Detection-Model/Final_Submission
 ```
 
